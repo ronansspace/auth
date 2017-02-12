@@ -35,8 +35,8 @@ if(isset($_SESSION['auth'])){
   						$pwd = $row['tdrPWD'];
               $sadmin = $row['super_admin'];
   				}
-					//if($pwd == md5($traderPWD)){
-                    if( 1 == 1) {
+					if($pwd == md5($traderPWD)){
+                    
             $_SESSION['auth']=1;
 						$_SESSION['auth_id']=$id;
             $_SESSION['super_admin'] = $sadmin;
