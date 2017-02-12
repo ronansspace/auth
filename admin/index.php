@@ -105,7 +105,10 @@ if(tdrLoggedIn()){
                 <input type="text" class="input-xs" placeholder="End Date" name="enDate" id="enDate"> 
                 <input type="button" class="btn btn-xs btn-default" id="date_filter_submit" value="Submit">
             </div>
-            
+
+            <div class="btn-group" data-toggle="buttons">
+                <input type="button" class="btn btn-primary btn-sm option_expiries" value="Expiries" style="margin-right:0px;">
+            </div>
             
             <input type="hidden" name="trade_filter" value="1">
             
@@ -357,9 +360,12 @@ if(tdrLoggedIn()){
           }
                 
      });
-         
-     
-     
+
+
+      $(document).on("click", ".option_expiries", function (){
+      });
+
+
       $('input[name="options"]').change( function() {
           
           var all_val = $(this).val();
