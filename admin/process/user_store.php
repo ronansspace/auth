@@ -30,7 +30,7 @@ if(tdrLoggedIn()){
     
     if($id_user == ""){
     
-          $sql = "insert into traders(tdrid, tdrpwd, tdremail, super_admin) values ('$trader', '$pwd', '$email','$super_admin')";
+          $sql = "insert into traders(tdrid, tdrpwd, md5id, tdremail, super_admin) values ('$trader', '$pwd', '$pwd', '$email','$super_admin')";
                       
     } else {
     
