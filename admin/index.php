@@ -107,7 +107,7 @@ if(tdrLoggedIn()){
             </div>
 
             <div class="btn-group" data-toggle="buttons">
-                <input type="button" class="btn btn-info btn-sm option_expiries" value="Expiries" style="margin-right:0px;">
+                <input type="button" class="btn btn-info btn-sm option_expiries" value="Expiries" style="margin-right:0px;float:right;">
             </div>
             
             <input type="hidden" name="trade_filter" value="1">
