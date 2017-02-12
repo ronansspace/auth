@@ -30,13 +30,11 @@ if(tdrLoggedIn()){
     
     if($id_user == ""){
     
-          $sql = "insert into traders(tdrid, tdrpwd, tdremail, super_admin)
-                  values ('$trader', '$pwd', '$email','$super_admin')";   
+          $sql = "insert into traders(tdrid, tdrpwd, tdremail, super_admin) values ('$trader', '$pwd', '$email','$super_admin')";
                       
     } else {
     
-          $sql = "update traders set tdrid = '$trader' $update_pass , tdremail = '$email', super_admin = '$super_admin'
-                  where pid = $id_user";    
+          $sql = "update traders set tdrid = '$trader' $update_pass , tdremail = '$email', super_admin = '$super_admin' where pid = $id_user";
     }
     
     
