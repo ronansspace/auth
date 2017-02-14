@@ -31,7 +31,7 @@ if(tdrLoggedIn()){  }
           
   while($fetch = $result->fetch_array()) {
         
-        $date = date("d/m/Y", strtotime($fetch['date'])); 
+        $date = date("d/m/Y H:i:s", strtotime($fetch['date']));
         $rate =  number_format($fetch["rate"], 5, '.', ',');
                                    
         $output[] = array (           
