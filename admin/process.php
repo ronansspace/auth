@@ -44,7 +44,7 @@ if(tdrLoggedIn()){  }
     
   //$sql = "SELECT * FROM contract where tdrID = $tdrID $xtra_qry order by id_contract desc, str_to_date( trade_date, '%d/%m/%Y') desc";
   $trdId = $_SESSION['auth_id'];
-  
+
   $sql = "SELECT * FROM contract where 1=1 $xtra_qry order by id_contract desc, str_to_date( trade_date, '%d/%m/%Y') desc";
     
 	$result = $conn->query($sql);
