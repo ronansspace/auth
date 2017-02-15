@@ -98,8 +98,7 @@ if(tdrLoggedIn()){
                 <input type="radio" name="options" value="5" autocomplete="off"> By Date
               </label>
             </div>
-            
-            
+
             <div id="tradebdate" style="width:20%;display:none;">
                 <input type="text" class="input-xs" placeholder="Start Date" name="stDate" id="stDate"> 
                 <input type="text" class="input-xs" placeholder="End Date" name="enDate" id="enDate"> 
@@ -107,14 +106,67 @@ if(tdrLoggedIn()){
             </div>
 
             <div class="btn-group" data-toggle="buttons">
-                <input type="button" class="btn btn-info btn-sm option_expiries" value="Expiries" style="margin-right:0px;float:right;">
+                <input type="button" class="btn btn-info btn-sm option_expiries" value="Expiries" style="">
             </div>
-            
+
             <input type="hidden" name="trade_filter" value="1">
             
         </div>
-        
-                           
+
+           <div id="optionexpiries" style="width:60%;float:left;display:inline;">
+               <h4 class="table_heading">Expiries</h4>
+               <table id="jsontable_expiries" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
+                   <thead>
+                   <tr>
+                       <th> </th>
+                       <th>ID</th>
+                       <th>TET</th>
+                       <th>PB</th>
+                       <th>Client</th>
+                       <th>Contract</th>
+                       <th>Client</th>
+                       <th>B/S</th>
+                       <th>Notional</th>
+                       <th>CCY</th>
+                       <th>Counter&nbsp;Amount</th>
+                       <th>Rate</th>
+                       <th>Trade&nbsp;Date</th>
+                       <th>Value&nbsp;Date</th>
+                       <th>Trader</th>
+                       <th>SPCUT</th>
+                       <th>Status</th>
+                       <th>Prem Amount</th>
+                       <th>Barrier&nbsp;Type</th>
+                       <th>Lower&nbsp;Barrier</th>
+                       <th>Upper&nbsp;Barrier</th>
+                       <th>Knock&nbsp;in&nbsp;out</th>
+                       <th>Touch&nbsp;up&nbsp;down</th>
+                       <th>Rebate&nbsp;CCY</th>
+                       <th>Expiry</th>
+                       <th>Rebate&nbsp;Amount</th>
+                       <th>Payout&nbsp;CCY</th>
+                       <th>Delivery</th>
+                       <th>FX&nbsp;Pair&nbsp;ID</th>
+                       <th>platform</th>
+                       <th>indicator</th>
+                       <th>platform_trade_id</th>
+                       <th>Cparty</th>
+                       <th>P/C</th>
+                       <th>OptCut</th>
+                       <th>Type</th>
+                       <th>Cash&nbsp;at</th>
+                       <th>Barrier&nbsp;StartDate</th>
+                       <th>Barrier&nbsp;EndDate</th>
+                       <th>Strike</th>
+                       <th>Expiry&nbsp;Date</th>
+                       <th>Sett&nbsp;Date</th>
+                       <th>Price</th>
+                   </tr>
+                   </tr>
+                   </thead>
+               </table>
+           </div>
+
         <div style="width:60%;float:left;display:inline;">             
                   <h4 class="table_heading">Trades</h4>
                   <table id="jsontable" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
@@ -137,7 +189,7 @@ if(tdrLoggedIn()){
                                   <th>Trader</th>
                                   <th>SPCUT</th>
                                   <th>Status</th>                          
-                                  <th>Prem&nbsp;Amount</th>
+                                  <th>Prem Amount</th>
                                   <th>Barrier&nbsp;Type</th>
                                   <th>Lower&nbsp;Barrier</th>
                                   <th>Upper&nbsp;Barrier</th>
@@ -150,7 +202,7 @@ if(tdrLoggedIn()){
                                   <th>Delivery</th>
                                   <th>FX&nbsp;Pair&nbsp;ID</th>
                                   <th>platform</th>
-          						            <th>indicator</th>
+                                  <th>indicator</th>
                                   <th>platform_trade_id</th>
                                   <th>Cparty</th>
                                   <th>P/C</th>
@@ -303,8 +355,11 @@ if(tdrLoggedIn()){
           }
                 
      });
-     
-     
+
+      $(document).on("click", ".option_expiries", function (){
+          $("#optionexpiries").toggle();
+      });
+
      $(document).on("click", ".email_client", function (){  
           
           event.preventDefault();            
@@ -360,11 +415,6 @@ if(tdrLoggedIn()){
           }
                 
      });
-
-
-      $(document).on("click", ".option_expiries", function (){
-      });
-
 
       $('input[name="options"]').change( function() {
           
@@ -574,7 +624,7 @@ if(tdrLoggedIn()){
 			}
       //alert();
       $(document).ready(function() {
-            
+          $("#optionexpiries").hide();
             getrecord_max();  
             
             getrecord_pnl();                      
