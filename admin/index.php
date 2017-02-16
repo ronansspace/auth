@@ -124,16 +124,16 @@ if(tdrLoggedIn()){
                        <th>B/S</th>
                        <th>Notional</th>
                        <th>CCY</th>
-                       <th>Counter&nbsp;Amount</th>
-                       <th>Trade&nbsp;Date</th>
+                       <th>Counter Amount</th>
+                       <th>Trade Date</th>
                        <th>Trader</th>
                        <th>Status</th>
-                       <th>Barrier&nbsp;Type</th>
+                       <th>Barrier Type</th>
                        <th>Expiry</th>
-                       <th>FX&nbsp;Pair&nbsp;ID</th>
+                       <th>FX Pair ID</th>
                        <th>P/C</th>
                        <th>Strike</th>
-                       <th>Expiry&nbsp;Date</th>
+                       <th>Expiry Date</th>
                    </tr>
                    </tr>
                    </thead>
