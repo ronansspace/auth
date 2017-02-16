@@ -113,7 +113,7 @@ if(tdrLoggedIn()){
             
         </div>
 
-           <div id="optionexpiries" style="width:90%;float:left;display:inline;">
+           <div id="optionexpiries" style="width:100%;float:left;display:inline;">
                <h4 class="table_heading">Option Expiries ( next 10 days )</h4>
                <table id="jsontable_expiries" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
                    <thead>
