@@ -113,53 +113,27 @@ if(tdrLoggedIn()){
             
         </div>
 
-           <div id="optionexpiries" style="width:60%;float:left;display:inline;">
+           <div id="optionexpiries" style="width:100%;float:left;display:inline;">
                <h4 class="table_heading">Option Expiries ( next 10 days )</h4>
-               <table id="jsontable_expiries" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="60%">
+               <table id="jsontable_expiries" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
                    <thead>
                    <tr>
                        <th>ID</th>
-                       <th>TET</th>
-                       <th>PB</th>
-                       <th>Client</th>
                        <th>Contract</th>
                        <th>Client</th>
                        <th>B/S</th>
                        <th>Notional</th>
                        <th>CCY</th>
                        <th>Counter&nbsp;Amount</th>
-                       <th>Rate</th>
                        <th>Trade&nbsp;Date</th>
-                       <th>Value&nbsp;Date</th>
                        <th>Trader</th>
-                       <th>SPCUT</th>
                        <th>Status</th>
-                       <th>Prem Amount</th>
                        <th>Barrier&nbsp;Type</th>
-                       <th>Lower&nbsp;Barrier</th>
-                       <th>Upper&nbsp;Barrier</th>
-                       <th>Knock&nbsp;in&nbsp;out</th>
-                       <th>Touch&nbsp;up&nbsp;down</th>
-                       <th>Rebate&nbsp;CCY</th>
                        <th>Expiry</th>
-                       <th>Rebate&nbsp;Amount</th>
-                       <th>Payout&nbsp;CCY</th>
-                       <th>Delivery</th>
                        <th>FX&nbsp;Pair&nbsp;ID</th>
-                       <th>platform</th>
-                       <th>indicator</th>
-                       <th>platform_trade_id</th>
-                       <th>Cparty</th>
                        <th>P/C</th>
-                       <th>OptCut</th>
-                       <th>Type</th>
-                       <th>Cash&nbsp;at</th>
-                       <th>Barrier&nbsp;StartDate</th>
-                       <th>Barrier&nbsp;EndDate</th>
                        <th>Strike</th>
                        <th>Expiry&nbsp;Date</th>
-                       <th>Sett&nbsp;Date</th>
-                       <th>Price</th>
                    </tr>
                    </tr>
                    </thead>
@@ -775,18 +749,15 @@ if(tdrLoggedIn()){
                       {
                           //, env - EMAIL ICON
 
-                          oTable.fnAddData([s[i][0], s[i][45], s[i][40],
-                              s[i][41], s[i][2], s[i][3], s[i][5], s[i][6], s[i][7], s[i][10],
-                              s[i][15], s[i][26], s[i][27], s[i][44], s[i][33], s[i][39], s[i][16], s[i][19], s[i][20], s[i][21], s[i][22], s[i][23], s[i][25],
-                              s[i][28], s[i][29], s[i][30], s[i][34], s[i][35], s[i][36], s[i][37], s[i][38],
-                              s[i][4], s[i][9], s[i][12], s[i][18], s[i][24], s[i][31], s[i][32], s[i][8], s[i][11], s[i][13], s[i][14]
+                          oTable.fnAddData([s[i][0], s[i][2], s[i][3], s[i][5], s[i][6], s[i][7], s[i][10],
+                              s[i][26], s[i][44], s[i][39], s[i][19],
+                              s[i][28], s[i][35],
+                              s[i][9], s[i][8], s[i][11]
                           ]);
 
                       } // End For
 
                   }
-
-
 
               },
               error: function(e){

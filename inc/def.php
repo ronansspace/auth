@@ -1,8 +1,8 @@
 <?php
-define(HOMEPAGE,"http://188.166.175.10");
+define(HOMEPAGE,"http://46.101.30.196");
 define(DBHOST,"localhost");
 define(DBUSER,"root");
-define(DBPASS,"bc43f15f516460e8966700a05761371e0235799a6d86ffd7");
+define(DBPASS,"f6a23e727b2ec091c4a42d117ef744bcf8ee7dbc59802700");
 define(DBNAME,"cmarkets");
 
 function generateFormToken($form) {
