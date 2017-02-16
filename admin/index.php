@@ -118,7 +118,6 @@ if(tdrLoggedIn()){
                <table id="jsontable_expiries" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="60%">
                    <thead>
                    <tr>
-                       <th> </th>
                        <th>ID</th>
                        <th>TET</th>
                        <th>PB</th>
@@ -172,6 +171,7 @@ if(tdrLoggedIn()){
                   <table id="jsontable" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
                       <thead>
                           <tr>                             
+                                  <th> </th>
                                   <th>ID</th>
                                   <th>TET</th>
                                   <th>PB</th>
