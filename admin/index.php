@@ -172,7 +172,6 @@ if(tdrLoggedIn()){
                   <table id="jsontable" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
                       <thead>
                           <tr>                             
-                                  <th> </th> 
                                   <th>ID</th>
                                   <th>TET</th>
                                   <th>PB</th>
