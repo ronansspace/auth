@@ -113,9 +113,9 @@ if(tdrLoggedIn()){  }
                $rates = "0.00";
         }
         
-        if($fetch["prem_amt"] <> "" || $fetch["prem_amt"] <> 0){
-               $deci = strlen(substr(strrchr($fetch["prem_amt"], "."), 1)); 
-               $prem_amts =  number_format($fetch["prem_amt"], $deci, '.', ',');
+        if($fetch["premium_amount"] <> "" || $fetch["premium_amount"] <> 0){
+               $deci = strlen(substr(strrchr($fetch["premium_amount"], "."), 1));
+               $prem_amts =  number_format($fetch["premium_amount"], $deci, '.', ',');
         }else{
                $prem_amts = "0.00";
         }
