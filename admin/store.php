@@ -434,9 +434,9 @@ $sql = "";
               /** FIND BROKER PART - END**/
               
               if($b == "S"){
-                    $gros_profit =  $match_premium_amount - $premium_amount;
-              }else{              
                     $gros_profit =  $premium_amount - $match_premium_amount;
+              }else{              
+                    $gros_profit =  $match_premium_amount - $premium_amount;
               }
               
               $cost = $total_cost;
