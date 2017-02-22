@@ -376,7 +376,9 @@ $sql = "";
               $convert_ccy = $row3["pnl_ccy_pair"];
               
               $order_ccy_usd =  substr($order_ccy, -3);
-              
+
+              $match_premium_amount = $row3["premium_amount"];
+
               if($order_ccy_usd = "USD"){
               
                     $ca_primary = $row3["counter_amt"];
@@ -432,9 +434,9 @@ $sql = "";
               /** FIND BROKER PART - END**/
               
               if($b == "S"){
-                    $gros_profit =  $ca_pnl_amount - $ca_secondry;
+                    $gros_profit =  $match_premium_amount - $premium_amount;
               }else{              
-                    $gros_profit =  $ca_secondry - $ca_pnl_amount;
+                    $gros_profit =  $premium_amount - $match_premium_amount;
               }
               
               $cost = $total_cost;
@@ -477,7 +479,8 @@ $sql = "";
                        
                        $row2 = $result2->fetch_assoc(); 
                            
-                       $ca_primary = $row2["counter_amt"]; 
+                       $ca_primary = $row2["counter_amt"];
+
                        $notional = $row2["notational"];
                        
                        $buy_sell = $row2["buy_sell"];
