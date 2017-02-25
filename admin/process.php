@@ -195,18 +195,37 @@ if(tdrLoggedIn()){  }
         $client_name = "";
                
         $sql2 = "select * from clients where id = '".$fetch["client"]."'";
-        $result2 = $conn->query($sql2);                       
-        $fetch2 = $result2->fetch_array();
-        
-        $trader_name  = $fetch["tdrID"];
-        
-        if($fetch2['name'] <> ""){  
-          $client_name = $fetch2['name'];
+        $result2 = $conn->query($sql2);
+
+        $size2 = $result2->num_rows;
+        if($size2 > 0){
+            $fetch2 = $result2->fetch_array();
+            if($fetch2['name'] <> ""){
+                $client_name = $fetch2['name'];
+            }
+        }else {
+            $client_name = $fetch["client"];
         }
-        
+
+
+      $sql3 = "select * from traders where pid = '".$fetch["tdrID"]."'";
+        $result3 = $conn->query($sql3);
+        $size3 = $result3->num_rows;
+
+        if($size3 > 0) {
+            $fetch3 = $result3->fetch_array();
+            $trader_name =  $fetch3['tdrID'];
+        } else {
+            $trader_name = $fetch["tdrID"];
+        }
+
         $id_contract_type = $fetch["trade_entry_type"];
-                               
-        $output[] = array (           
+
+
+
+
+
+      $output[] = array (
         
             $fetch["id_contract"],$filesent,$fetch["contract"],$client_name,$fetch["cparty"],$fetch["buy_sell"],
             $notation,$fetch["ccy_pair"],$strikes,$fetch["p_c"],$counter_amts,$fetch["expiry_date"],$fetch["optcut"],
