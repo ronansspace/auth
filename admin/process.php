@@ -159,6 +159,11 @@ if(tdrLoggedIn()){  }
                $filesent_pb =  "SENT";
                $pb_class = "cls_green";
                
+        }else if($fetch["pb_email"] == 2){
+
+            $filesent_pb =  "FIX";
+            $pb_class = "cls_green";
+
         }else{
                
                $filesent_pb =  "NOT SENT";
@@ -175,6 +180,11 @@ if(tdrLoggedIn()){  }
                $filesent_client =  "SENT";
                $client_class = "cls_green";
                
+        }else if($fetch["client_email"] == 2){
+
+            $filesent_client =  "FIX";
+            $client_class = "cls_green";
+
         }else{
                
                $filesent_client =  "NOT SENT";
