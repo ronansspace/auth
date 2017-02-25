@@ -834,6 +834,7 @@ include('footer.php');
                 "iDisplayLength": 25,
                 "processing": true,
                 "scrollX": true,
+                "order": [[ 0, "desc" ]]
 
 
             });
