@@ -463,6 +463,7 @@ include('footer.php');
             if (all_val != 5) {
 
                 getrecord_max();
+                getfixexecs();
                 getrecord_pnl();
 
             }
@@ -484,6 +485,7 @@ include('footer.php');
             } else {
 
                 getrecord_max();
+                getfixexecs();
                 getrecord_pnl();
 
             }
