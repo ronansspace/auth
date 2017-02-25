@@ -31,7 +31,7 @@ if($size <= 0){
 }
 while($fetch = $result->fetch_array()) {
     $output[] = array (
-        $fetch["Account"],$fetch["Symbol"],$fetch["AvgPx"],$fetch["ClOrdID"],$fetch["CumQty"],$fetch["Currency"],
+        $fetch["Account"],$fetch["Symbol"],$fetch["AvgPx"],$fetch["CIOrdID"],$fetch["CumQty"],$fetch["Currency"],
         $fetch["ExecID"],$fetch["LastPx"],$fetch["LastQty"],$fetch["OrderID"],$fetch["OrderQty"],
         $fetch["OrdStatus"],$fetch["OrdType"],$fetch["Price"],$fetch["Side"],$fetch["TimeInForce"],
         $fetch["TransactTime"],$fetch["SettlDate"],$fetch["ListID"],$fetch["TradeDate"],$fetch["ExecType"],
