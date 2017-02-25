@@ -609,10 +609,10 @@ $sql = "";
           if(isset($_GET['save_copy'])){
                 
                 if($_POST['fx_pair_id'] <> ""){
-                    echo $_POST['fx_pair_id'];
+                    echo $fpi;
                 }else{
                     //echo $conn->insert_id;
-                    echo $id_contract_new;
+                    echo $fpi;
                 } 
                 
           }else{
