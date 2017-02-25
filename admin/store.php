@@ -360,69 +360,6 @@ $sql = "";
       
       //echo  $sql;
       //exit;
-      
-      
-              // Updating/Adding new CCYRate if doesnt exist
-              
-              $date = date('Y-m-d');
-              
-              
-              $order_ccy_usd =  substr($cp, -3);
-              $ccypair = "";
-              
-              if(isset($_POST['pnl_ccy_pair'])){
-              
-                    $ccypair = $_POST['pnl_ccy_pair'];
-              } 
-              
-              if($order_ccy_usd = "USD"){
-              
-                    $rate = 1;
-              
-              }else if($cp == $pnl_ccy_pair){
-                    
-                    $rate = $_POST['rate'];
-                 
-              }else{
-              
-                   $rate = $_POST['pnl_rate'];
-                 
-              }  
-              
-              
-              $sql_a = "select * from ccyrate where ccypair='$ccypair'";
-              $result_a = $conn->query($sql_a); 
-              
-              $size_a = $result_a->num_rows;
-              
-              
-              if($size_a > 0){
-              
-                    $sql_ab = "select * from ccyrate where ccypair='$ccypair' and rate = $rate";
-                    $result_ab = $conn->query($sql_ab); 
-                    
-                    $size_ab = $result_ab->num_rows;
-                    
-                    if($size_ab <= 0){
-                    
-                          $sql_d = "update ccyrate set rate = $rate, date = '$date'
-                          where ccypair = '$ccypair'";
-                          
-                          $result_d = $conn->query($sql_d);
-                    
-                    } 
-                     
-              }else{
-              
-                    $sql_d = "insert into ccyrate(ccypair, rate, date)
-                    values ('$ccypair', $rate, '$date')";
-                    
-                    $result_d = $conn->query($sql_d); 
-              
-              }
-              
-              
-      }
 
       //if ($conn->query($sql) === TRUE) {
       if($main_query === TRUE) {
