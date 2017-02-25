@@ -382,9 +382,9 @@ include('footer.php');
             $("#optionexpiries").toggle();
         });
 
-       // $(document).on("click", ".fix_detail", function () {
-        //    $("#fixdetail").toggle();
-        //});
+        $(document).on("click", ".fix_detail", function () {
+            $("#fixdetail").toggle();
+        });
 
         $(document).on("click", ".email_client", function () {
 
@@ -658,7 +658,7 @@ include('footer.php');
         //alert();
         $(document).ready(function () {
             $("#optionexpiries").hide();
-            //$("#fixdetail").hide();
+            $("#fixdetail").hide();
             getrecord_max();
             getexpiries();
             getfixexecs();
@@ -827,7 +827,6 @@ include('footer.php');
 
         function getfixexecs() {
 
-
             $('#jsontable_fixexecs').dataTable().fnDestroy();
 
             var oTable = $('#jsontable_fixexecs').dataTable({
@@ -859,9 +858,7 @@ include('footer.php');
                         for (var i = 0; i < s.length; i++) {
                             //, env - EMAIL ICON
                             oTable.fnAddData([s[i][16], s[i][6], s[i][0], s[i][14], s[i][1], s[i][8], s[i][7], s[i][10], s[i][19], s[i][17], s[i][12], s[i][11], s[i][20], s[i][2], s[i][4], s[i][21], s[i][5], s[i][13], s[i][15], s[i][18], s[i][22], s[i][23], s[i][24], s[i][3], s[i][9], s[i][25], s[i][26], s[i][27]], s[i][28]
-                        ]
-                        ])
-                            ;
+                        ]);
 
                         } // End For
 
@@ -875,6 +872,7 @@ include('footer.php');
                 }
             });
         }
+
         function logout() {
 
             $.ajax({
