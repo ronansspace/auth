@@ -1092,18 +1092,21 @@ else{
                         <option value="">Client Trader</option> 
                                                    
                         <?php
-                        if($client <> ""){
-                        
+                        if($client <> "") {
+
                             $sql3 = "select * from client_trader where client_id=$client order by name";
-                          	$result3 = $conn->query($sql3);
-                                    
-                            while($fetch3 = $result3->fetch_array()) 
-                            {
-                            ?>    
-                                 <option <?php if(isset($client_trader) && $client_trader == $fetch3['id']){ echo "selected"; }?>  value="<?=$fetch3['id'];?>"><?=$fetch3['name'];?></option> 
-                            <?php
-                            }   
-                        }                       
+                            $result3 = $conn->query($sql3);
+                            $size3 = $result3->num_rows;
+                            if ($size3 > 0) {
+                                while ($fetch3 = $result3->fetch_array()) {
+                                    ?>
+                                    <option <?php if (isset($client_trader) && $client_trader == $fetch3['id']) {
+                                        echo "selected";
+                                    } ?> value="<?= $fetch3['id']; ?>"><?= $fetch3['name']; ?></option>
+                                    <?php
+                                }
+                            }
+                        }
                         ?>      
                       
                       </select>
