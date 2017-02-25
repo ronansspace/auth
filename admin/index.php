@@ -382,9 +382,9 @@ include('footer.php');
             $("#optionexpiries").toggle();
         });
 
-        $(document).on("click", ".fix_detail", function () {
-            $("#fixdetail").toggle();
-        });
+       // $(document).on("click", ".fix_detail", function () {
+        //    $("#fixdetail").toggle();
+        //});
 
         $(document).on("click", ".email_client", function () {
 
@@ -658,7 +658,7 @@ include('footer.php');
         //alert();
         $(document).ready(function () {
             $("#optionexpiries").hide();
-            $("#fixdetail").hide();
+            //$("#fixdetail").hide();
             getrecord_max();
             getexpiries();
             //getfixexecs();
@@ -825,7 +825,7 @@ include('footer.php');
             });
         }
 
-        function getfixexecs() {
+       /* function getfixexecs() {
 
 
             $('#jsontable_fixexecs').dataTable().fnDestroy();
@@ -874,7 +874,7 @@ include('footer.php');
                     //alert('Error loading records.')
                 }
             });
-        }
+        }*/
         function logout() {
 
             $.ajax({
