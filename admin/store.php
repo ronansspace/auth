@@ -69,7 +69,7 @@ if(isset($_POST['fx_pair_id']) && $_POST['fx_pair_id'] <> "")
     
 }else{
 
-      $fpi = "";
+      $fpi = uniqid('TLink_');
       
       $pnl_ccy_pair = "";
       if(isset($_POST['pnl_ccy_pair'])){
