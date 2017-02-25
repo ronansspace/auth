@@ -362,7 +362,7 @@ $sql = "";
       //exit;
       
       
-      if(isset($_POST['fx_pair_id']) && $_POST['fx_pair_id'] <> ""){
+      if(isset($_POST['fx_pair_id']) && $_POST['fx_pair_id'] <> "" && $contract <> "FXSP"){
       
               $trade_id = explode("_",$_POST['fx_pair_id']);
               $trade_id_id = $trade_id[1];
