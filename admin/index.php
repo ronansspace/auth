@@ -661,7 +661,7 @@ include('footer.php');
             //$("#fixdetail").hide();
             getrecord_max();
             getexpiries();
-            //getfixexecs();
+            getfixexecs();
             getrecord_pnl();
         });
 
@@ -825,7 +825,7 @@ include('footer.php');
             });
         }
 
-       /* function getfixexecs() {
+        function getfixexecs() {
 
 
             $('#jsontable_fixexecs').dataTable().fnDestroy();
@@ -874,7 +874,7 @@ include('footer.php');
                     //alert('Error loading records.')
                 }
             });
-        }*/
+        }
         function logout() {
 
             $.ajax({
