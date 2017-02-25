@@ -24,7 +24,7 @@ if(tdrLoggedIn()){  }
   
   
   $dt_first = str_replace("/", "-", strtotime($_GET['stdate']));
-  $dt_first = date('Y-m-d', strtotime($_GET['stdate']));
+  $dt_first = date('Y-m-d', strtotime($dt_first));
   
   $dt_sec = str_replace("/", "-", $_GET['endate']);
   $dt_sec = date('Y-m-d', strtotime($dt_sec));
