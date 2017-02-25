@@ -1290,7 +1290,7 @@ include('footer.php');
                         $("#" + myform).find("select[name=buy_sell]").val("S");
                     }
 
-                    $("#" + myform).find("input[name=fx_pair_id]").val("TLink_" + data);
+                    $("#" + myform).find("input[name=fx_pair_id]").val(data);
 
                     // REMOVE  CONVERT BASE AREA //
 

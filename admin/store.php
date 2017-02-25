@@ -608,8 +608,8 @@ $sql = "";
         
           if(isset($_GET['save_copy'])){
                 
-                if($_POST['id_contract'] <> ""){
-                    echo $_POST['id_contract'];
+                if($_POST['fx_pair_id'] <> ""){
+                    echo $_POST['fx_pair_id'];
                 }else{
                     //echo $conn->insert_id;
                     echo $id_contract_new;
