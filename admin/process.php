@@ -191,36 +191,14 @@ if(tdrLoggedIn()){  }
                $client_class = "cls_amber";
         }
         
-               
-        
-        /*
-        if($fetch["pb_email"] <> "" || $fetch["pb_email"] <> 0){
-               $filesent_pb =  "SENT";
-               $pb_class = "cls_green";
-        }else{
-               $filesent_pb =  "NOT SENT";
-               $pb_class = "cls_pink";
-        }        
-        if($fetch["client_email"] <> "" || $fetch["client_email"] <> 0){
-               $filesent_client =  "SENT";
-               $client_class = "cls_green";
-        }else{
-               $filesent_client =  "NOT SENT";
-               $client_class = "cls_pink";
-        }           
-        */
-        
+
         $client_name = "";
                
         $sql2 = "select * from clients where id = '".$fetch["client"]."'";
         $result2 = $conn->query($sql2);                       
         $fetch2 = $result2->fetch_array();
         
-        $sql3 = "select * from traders where pid = '".$fetch["tdrID"]."'";
-        $result3 = $conn->query($sql3);                       
-        $fetch3 = $result3->fetch_array();
-        
-        $trader_name =  $fetch3['tdrID'];
+        $trader_name  = $fetch["tdrID"];
         
         if($fetch2['name'] <> ""){  
           $client_name = $fetch2['name'];
