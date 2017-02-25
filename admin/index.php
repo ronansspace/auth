@@ -109,6 +109,10 @@ if(tdrLoggedIn()){
                 <input type="button" class="btn btn-info btn-sm option_expiries" value="Expiries" style="">
             </div>
 
+            <div class="btn-group" data-toggle="buttons">
+                <input type="button" class="btn btn-info btn-sm fix_detail" value="FIX" style="">
+            </div>
+
             <input type="hidden" name="trade_filter" value="1">
             
         </div>
@@ -225,8 +229,45 @@ if(tdrLoggedIn()){
                     </thead>                        
                 </table>
         </div>
-        
-        
+
+           <div id="fixdetail" style="width:100%;float:left;display:inline;">
+               <h4 class="table_heading">FIX Executions</h4>
+               <table id="jsontable_fixexecs" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
+                   <thead>
+                   <tr>
+                       <th>Transact Time</th>
+                       <th>Exec ID</th>
+                       <th>Account</th>
+                       <th>B/S</th>
+                       <th>Pair</th>
+                       <th>Exec Qty</th>
+                       <th>Exec Price</th>
+                       <th>Order Qty</th>
+                       <th>Trade Date</th>
+                       <th>Settle Date</th>
+                       <th>Order Type</th>
+                       <th>Order Status</th>
+                       <th>Exec Type</th>
+                       <th>Avg Price</th>
+                       <th>Cumul Qty</th>
+                       <th>Remain Qty</th>
+                       <th>Currency</th>
+                       <th>Price</th>
+                       <th>Time In Force</th>
+                       <th>ListID</th>
+                       <th>Effective Time</th>
+                       <th>No. Contra Brokers</th>
+                       <th>Secondary Exec ID</th>
+                       <th>ClOrdID</th>
+                       <th>Order ID</th>
+                       <th>Party ID</th>
+                       <th>Contra Broker</th>
+                       <th>Source System</th>
+                       <th>Client Order</th>
+                   </tr>
+                   </thead>
+               </table>
+           </div>
         
        </div>       
     </div>      
@@ -330,6 +371,10 @@ if(tdrLoggedIn()){
 
       $(document).on("click", ".option_expiries", function (){
           $("#optionexpiries").toggle();
+      });
+
+      $(document).on("click", ".fix_detail", function (){
+          $("#fixdetail").toggle();
       });
 
      $(document).on("click", ".email_client", function (){  
@@ -597,8 +642,10 @@ if(tdrLoggedIn()){
       //alert();
       $(document).ready(function() {
           $("#optionexpiries").hide();
+          $("#fixdetail").hide();
             getrecord_max();  
             getexpiries();
+            getfixexecs();
             getrecord_pnl();                      
       });
       
@@ -766,7 +813,57 @@ if(tdrLoggedIn()){
               }
           });
       }
-		  function logout(){
+
+      function getfixexecs(){
+
+
+          $('#jsontable_fixexecs').dataTable().fnDestroy();
+
+          var oTable = $('#jsontable_fixexecs').dataTable({
+              "iDisplayLength": 25,
+              "processing": true,
+              "scrollX": true,
+
+
+          });
+
+          var all_val = $('input[name=options]:checked').val();
+          var stDate = $('input[name=stDate]').val();
+          var enDate = $('input[name=enDate]').val();
+
+
+          $.ajax({
+
+              url: 'process_fixexecs.php?method=fetchdata&theid='+all_val+'&stdate='+stDate+'&endate='+enDate + " ",
+              dataType: 'json',
+              success: function(s){
+
+                  oTable.fnClearTable();
+
+                  if(s == "empty"){
+
+
+                  } else {
+
+                      for(var i = 0; i < s.length; i++)
+                      {
+                          //, env - EMAIL ICON
+                          oTable.fnAddData([s[i][16], s[i][6], s[i][0], s[i][14], s[i][1], s[i][8], s[i][7], s[i][10], s[i][19], s[i][17], s[i][12], s[i][11], s[i][20], s[i][2], s[i][4], s[i][21], s[i][5], s[i][13], s[i][15], s[i][18], s[i][22], s[i][23], s[i][24], s[i][3], s[i][9], s[i][25], s[i][26], s[i][27]], s[i][28]]
+                          ]);
+
+                      } // End For
+
+                  }
+
+              },
+              error: function(e){
+                  //console.log(e.responseText);
+                  //alert(e.responseText);
+                  //alert('Error loading records.')
+              }
+          });
+      }
+      function logout(){
       
       			$.ajax({
       			url: 'logout.php',
