@@ -18,8 +18,9 @@ if($qry_type == 1){
 }else if($qry_type == 2){
     $xtra_qry =  "and TradeDate = '$dt_today'";
 }else if($qry_type == 3){
-    $xtra_qry =  " and (TradeDate >= '$dt_today_ten' and TradeDate <= '$dt_today') ";
 }else if($qry_type == 4){
+    $xtra_qry =  " and (TradeDate >= '$dt_today_ten' and TradeDate <= '$dt_today') ";
+}else if($qry_type == 5){
     $xtra_qry =  " and (TradeDate >= '$dt_first' and TradeDate <= '$dt_sec') ";
 }
 $sql = "SELECT * FROM FIXExecutionReport WHERE 1=1 $xtra_qry ORDER by TransactTime DESC";
