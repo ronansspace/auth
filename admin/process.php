@@ -23,7 +23,7 @@ if(tdrLoggedIn()){  }
   $dt_today_ten = date('Y-m-d', strtotime("-10 days"));
   
   
-  $dt_first = str_replace("/", "-", strtotime($_GET['stdate']));
+  $dt_first = str_replace("/", "-", $_GET['stdate']);
   $dt_first = date('Y-m-d', strtotime($dt_first));
   
   $dt_sec = str_replace("/", "-", $_GET['endate']);
