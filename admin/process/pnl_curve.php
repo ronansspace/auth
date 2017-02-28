@@ -17,17 +17,17 @@ if(tdrLoggedIn()){  }
   
   $xtra_qry = "";
   
-  $dt_today = date('d-m-Y');
+  $dt_today = date('Y-m-d');
   
   //Last 10 days
-  $dt_today_ten = date('d-m-Y', strtotime("-10 days"));
+  $dt_today_ten = date('Y-m-d', strtotime("-10 days"));
 
 
    $dt_first = str_replace("/", "-", $_GET['stdate']);
-   $dt_first = date('d-m-Y', strtotime($dt_first));
+   $dt_first = date('Y-m-d', strtotime($dt_first));
 
    $dt_sec = str_replace("/", "-", $_GET['endate']);
-   $dt_sec = date('d-m-Y', strtotime($dt_sec));
+   $dt_sec = date('Y-m-d', strtotime($dt_sec));
 
   if($qry_type == 1){
       $startDate = '1970-01-01';
