@@ -211,30 +211,15 @@ if (tdrLoggedIn()) {
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <!--<th>ID</th>-->
-                        <th>Trade ID</th>
-
-                        <th>Gros Profit</th>
-
-                        <th>PB Cost</th>
-                        <th>Venue Cost</th>
-                        <th>Total Cost</th>
-
-                        <th>Net Profit</th>
-
                         <th>Contract</th>
-                        <!--<th>CCY Pair</th>
-                        <th>Client</th>-->
-                        <th>Trader</th>
-
-                        <!--<th>Notional</th>-->
-
-                        <!--<th>Trade Date</th>
-                        <th>Value Date</th>-->
-
-
-                        <th>FX Pair ID</th>
-                    </tr>
+                        <th>OrderID</th>
+                        <th>Pair</th>
+                        <th>PayCcy</th>
+                        <th>GrossProfit</th>
+                        <th>BrokerCost</th>
+                        <th>VenueCost</th>
+                        <th>TotalCost</th>
+                        <th>NetProfit</th>
                     </tr>
                     </thead>
                 </table>
@@ -681,7 +666,7 @@ include('footer.php');
 
             $.ajax({
 
-                url: 'process/pnl.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
+                url: 'process/pnl_curve.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
                 dataType: 'json',
                 success: function (s) {
                     pTable.fnClearTable();
@@ -694,7 +679,7 @@ include('footer.php');
                         for (var i = 0; i < s.length; i++) {
 
                             pTable.fnAddData([
-                                s[i][1], s[i][11], s[i][12], s[i][13], s[i][14], s[i][10], s[i][3], s[i][5], s[i][2]
+                                s[i][0], s[i][1], s[i][2], s[i][3], s[i][4], s[i][5], s[i][6], s[i][7], s[i][8]
                             ]);
 
                         } // End For
