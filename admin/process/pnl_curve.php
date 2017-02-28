@@ -17,26 +17,26 @@ if(tdrLoggedIn()){  }
   
   $xtra_qry = "";
   
-  $dt_today = date('d/m/Y');
+  $dt_today = date('d-m-Y');
   
   //Last 10 days
-  $dt_today_ten = date('d/m/Y', strtotime("-10 days"));
+  $dt_today_ten = date('d-m-Y', strtotime("-10 days"));
 
 
    $dt_first = str_replace("/", "-", $_GET['stdate']);
-   $dt_first = date('d/m/Y', strtotime($dt_first));
+   $dt_first = date('d-m-Y', strtotime($dt_first));
 
    $dt_sec = str_replace("/", "-", $_GET['endate']);
-   $dt_sec = date('d/m/Y', strtotime($dt_sec));
+   $dt_sec = date('d-m-Y', strtotime($dt_sec));
 
   if($qry_type == 1){
-      $startDate = '01/01/1970';
+      $startDate = '1970-01-01';
       $endDate = $dt_today;
   }else if($qry_type == 2){
       $startDate = $dt_today;
       $endDate = $dt_today;
   }else if($qry_type == 3){
-      $startDate = '01/01/1970';
+      $startDate = '1970-01-01';
       $endDate = $dt_today;
   }else if($qry_type == 4){
       $startDate = $dt_today_ten;
