@@ -214,7 +214,7 @@ if (tdrLoggedIn()) {
                         <th>Contract</th>
                         <th>OrderID</th>
                         <th>Pair</th>
-                        <th>PayCcy</th>
+                        <th>Base</th>
                         <th>GrossProfit</th>
                         <th>BrokerCost</th>
                         <th>VenueCost</th>

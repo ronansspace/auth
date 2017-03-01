@@ -779,7 +779,7 @@ else{
                     </option>
                   </select></td>                        	<td></td><td></td>                            <td>Order Entry time:</td><td>
                   <input tabindex="12" id="fxsp_oet" name="order_entry_time" value="<?=$order_entry_time;?>" type="text" ></td>                            <td>FX_PAIR ID:</td><td>
-                  <input name="fx_pair_id" readonly value="<?=$fx_pair_id;?>" type="text"></td>                        
+                  <input name="fx_pair_id" value="<?=$fx_pair_id;?>" type="text"></td>
               </tr>                        
               <tr>                        	<td></td><td></td>                        	<td></td><td></td>                            <td></td><td></td>                            <td>Matching Date:</td><td>
                   <input placeholder="dd/mm/yy" tabindex="17"  value="<?=$matching_date;?>" id="fxsp_md"  class="all_dates" name="match_date" type="text"></td>							               <td>
@@ -1360,7 +1360,7 @@ else{
                     </option>      											 
                   </select>                            </td>                            <td></td><td></td>                            
                 <!--<td>Order Entry time:</td><td><input tabindex="14" id="fxsp_oet" name="order_entry_time" value="<?=$order_entry_time;?>" type="text" ></td>-->                            <td>FX_PAIR ID:</td><td>
-                  <input name="fx_pair_id" readonly value="<?=$fx_pair_id;?>" type="text"></td>                        
+                  <input name="fx_pair_id" value="<?=$fx_pair_id;?>" type="text"></td>
               </tr>                                                 
               <tr>                        	<td></td><td></td>                        	<td></td><td></td>                            <td></td><td></td>                            <td>Matching Date:</td><td>
                   <input  class="all_dates" placeholder="dd/mm/yy" tabindex="17"  value="<?=$matching_date;?>" name="match_date" type="text"></td>							               <td>
@@ -1690,7 +1690,7 @@ else{
                     <option <?php if(isset($prime_broker) && $prime_broker == "TEST"){ echo "selected"; }?> value="TEST">TEST
                     </option>
                   </select></td>                                                                                              <td>FX_PAIR ID:</td><td>
-                  <input name="fx_pair_id" readonly value="<?=$fx_pair_id;?>" type="text"></td>                        
+                  <input name="fx_pair_id" value="<?=$fx_pair_id;?>" type="text"></td>
               </tr>                        
               <tr>                        	  <td></td><td></td>                        	  <td></td><td></td>                            <td></td><td></td>						               	
                 <!--<td>Order Entry time:</td><td><input tabindex="14" id="fxsp_oet" name="order_entry_time" value="<?=$order_entry_time;?>" type="text" ></td>-->                            <td>Matching Date:</td><td>
@@ -2049,7 +2049,7 @@ else{
                     </option>
                   </select></td>                                                           
                   <td>FX_PAIR ID:</td>
-                  <td><input name="fx_pair_id" readonly value="<?=$fx_pair_id;?>" type="text"></td>                        
+                  <td><input name="fx_pair_id" value="<?=$fx_pair_id;?>" type="text"></td>
               </tr>                        
               <tr>                                                	
               <td>
@@ -2600,7 +2600,7 @@ else{
                     </option>
                   </select></td>                                                           
                   <td>FX_PAIR ID:</td><td>
-                  <input name="fx_pair_id" readonly value="<?=$fx_pair_id;?>" type="text"></td>                        
+                  <input name="fx_pair_id" value="<?=$fx_pair_id;?>" type="text"></td>
               </tr>                        
               <tr>                                                	
               <td>
