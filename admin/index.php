@@ -151,8 +151,40 @@ if (tdrLoggedIn()) {
                     </thead>
                 </table>
             </div>
-            <div style="width:60%;float:left;display:inline;">
-                <h4 class="table_heading">Trades</h4>
+            <div style="width:60%;float:left;display:inline;padding-left:10px;">
+                <h4 class="table_heading">PL by Order</h4>
+                <table id="jsontable_pnl" class="display table table-hover table-striped table-bordered nowrap"
+                       cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Contract</th>
+                        <th>OrderID</th>
+                        <th>TradeDate</th>
+                        <th>Pair</th>
+                        <th>GrossProfit</th>
+                        <th>BrokerCost</th>
+                        <th>VenueCost</th>
+                        <th>TotalCost</th>
+                        <th>NetProfit</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="width:40%;float:left;display:inline;padding-left:10px;">
+                <h4 class="table_heading">PL by Pair</h4>
+                <table id="jsontable_usdpnl" class="display table table-hover table-striped table-bordered nowrap"
+                       cellspacing="0" width="100%">
+                    <thead>
+                    <tr><th>TradeDate</th>
+                        <th>Pair</th>
+                        <th>FX USD</th>
+                        <th>USD PL</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="width:100%;float:left;display:inline;">
+                <h4 class="table_heading">Orders</h4>
                 <table id="jsontable" class="display table table-hover table-striped table-bordered nowrap"
                        cellspacing="0" width="100%">
                     <thead>
@@ -201,25 +233,6 @@ if (tdrLoggedIn()) {
                         <th>Sett&nbsp;Date</th>
                         <th>Price</th>
                     </tr>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-            <div style="width:40%;float:left;display:inline;padding-left:10px;">
-                <h4 class="table_heading">Brokerage</h4>
-                <table id="jsontable_pnl" class="display table table-hover table-striped table-bordered nowrap"
-                       cellspacing="0" width="100%">
-                    <thead>
-                    <tr>
-                        <th>Contract</th>
-                        <th>OrderID</th>
-                        <th>TradeDate</th>
-                        <th>Pair</th>
-                        <th>GrossProfit</th>
-                        <th>BrokerCost</th>
-                        <th>VenueCost</th>
-                        <th>TotalCost</th>
-                        <th>NetProfit</th>
                     </tr>
                     </thead>
                 </table>
