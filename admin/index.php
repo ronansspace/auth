@@ -175,10 +175,12 @@ if (tdrLoggedIn()) {
                 <table id="jsontable_usdpnl" class="display table table-hover table-striped table-bordered nowrap"
                        cellspacing="0" width="100%">
                     <thead>
-                    <tr><th>TradeDate</th>
+                    <tr>
+                        <th>TradeDate</th>
                         <th>Pair</th>
                         <th>FX USD</th>
-                        <th>USD PL</th>
+                        <th>PL CCY</th>
+                        <th>PL USD</th>
                     </tr>
                     </thead>
                 </table>
@@ -338,6 +340,7 @@ include('footer.php');
                         }
                         getrecord_max();
                         getrecord_pnl();
+                        getrecord_usdpnl();
                     },
                     cache: false,
                     contentType: false,
@@ -419,6 +422,7 @@ include('footer.php');
                                 //alert("Email Sent");
                                 getrecord_max();
                                 getrecord_pnl();
+                                getrecord_usdpnl();
                             } else if (data == "error_client_email") {
                                 alert("Client trader email not provided");
                             } else if (data == "error_client_trader") {
@@ -463,7 +467,7 @@ include('footer.php');
                 getrecord_max();
                 getfixexecs();
                 getrecord_pnl();
-
+                getrecord_usdpnl();
             }
 
 
@@ -485,7 +489,7 @@ include('footer.php');
                 getrecord_max();
                 getfixexecs();
                 getrecord_pnl();
-
+                getrecord_usdpnl();
             }
 
 
@@ -590,6 +594,7 @@ include('footer.php');
                                     alert('Record Deleted');
                                     getrecord_max();
                                     getrecord_pnl();
+                                    getrecord_usdpnl();
                                 } else {
                                     alert('Error delteing record, please try again!');
                                 }
@@ -662,6 +667,7 @@ include('footer.php');
             getexpiries();
             getfixexecs();
             getrecord_pnl();
+            getrecord_usdpnl();
         });
 
         function getrecord_pnl() {
@@ -693,6 +699,50 @@ include('footer.php');
 
                             pTable.fnAddData([
                                 s[i][0], s[i][1], s[i][2], s[i][3], s[i][4], s[i][5], s[i][6], s[i][7], s[i][8]
+                            ]);
+
+                        } // End For
+
+                    }
+
+                },
+                error: function (e) {
+
+                    alert(e);
+                }
+            });
+
+        }
+
+        function getrecord_usdpnl() {
+
+            $('#jsontable_usdpnl').dataTable().fnDestroy();
+            var pTable = $('#jsontable_usdpnl').dataTable({
+                "iDisplayLength": 25,
+                "processing": true,
+                "scrollX": true
+            });
+
+            var all_val = $('input[name=options]:checked').val();
+            var stDate = $('input[name=stDate]').val();
+            var enDate = $('input[name=enDate]').val();
+
+            $.ajax({
+
+                url: 'process/usdpnl_curve.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
+                dataType: 'json',
+                success: function (s) {
+                    pTable.fnClearTable();
+
+                    if (s == "empty") {
+
+
+                    } else {
+
+                        for (var i = 0; i < s.length; i++) {
+
+                            pTable.fnAddData([
+                                s[i][0], s[i][1], s[i][2], s[i][3], s[i][4]
                             ]);
 
                         } // End For
@@ -1168,6 +1218,7 @@ include('footer.php');
 
                     window.parent.getrecord_max();
                     window.parent.getrecord_pnl();
+                    window.parent.getrecord_usdpnl();
 
                     $('#FXSP,#FXFW,#FXNDF,#FXOPT,#EOPT').hide();
                     $('#container2').hide();
@@ -1209,6 +1260,7 @@ include('footer.php');
 
                     window.parent.getrecord_max();
                     window.parent.getrecord_pnl();
+                    window.parent.getrecord_usdpnl();
 
                     $('#FXSP,#FXFW,#FXNDF,#FXOPT,#EOPT').hide();
                     $('#container2').hide();
