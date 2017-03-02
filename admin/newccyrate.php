@@ -100,12 +100,12 @@ if(!tdrLoggedIn()){
                         <?php
                         //if($client <> ""){
                         
-                            $sql33 = "select * from currency order by currency_code";
+                            $sql33 = "select * from ccy_pair order by pair";
                           	$result33 = $conn->query($sql33);
                                     
                             while($fetch33 = $result33->fetch_array()) 
                             {
-                                 $val_usd =  $fetch33["currency_code"]."USD";
+                                 $val_usd =  $fetch33["pair"];
                             ?>    
                                  <option <?php if(isset($pnl_ccy_pair) && $pnl_ccy_pair == $val_usd){ echo "selected"; } ?>  value="<?=$val_usd;?>"><?=$val_usd;?></option> 
                             <?php
