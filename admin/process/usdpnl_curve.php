@@ -35,19 +35,19 @@ if(tdrLoggedIn()){  }
   }else if($qry_type == 2){
       $startDate = $dt_today;
       $endDate = $dt_today;
-      $mktDate = $dt_today;
+      $mktDate = date('Ymd', strtotime($dt_today));
   }else if($qry_type == 3){
       $startDate = '01/01/1970';
       $endDate = $dt_today;
-      $mktDate = $dt_today;
+      $mktDate = date('Ymd', strtotime($dt_today));
   }else if($qry_type == 4){
       $startDate = $dt_today_ten;
       $endDate = $dt_today;
-      $mktDate = $dt_today;
+      $mktDate = date('Ymd', strtotime($dt_today));
   }else if($qry_type == 5){
       $startDate = $dt_first;
       $endDate = $dt_sec;
-      $mktDate = $dt_first;
+      $mktDate = date('Ymd', strtotime($dt_first));
   }
 
 $sql = "call get_usdpl('$startDate','$endDate')";
