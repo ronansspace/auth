@@ -194,7 +194,7 @@ if(tdrLoggedIn()){
                "iDisplayLength": 25,
                "processing": true,
                "scrollX": true,
-            
+                "order": [[ 1, "desc" ]]
             });                                                                                    
                      
             $.ajax({
