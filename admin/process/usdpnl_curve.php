@@ -103,6 +103,8 @@ foreach ($new_array as $record) {
         }
     }
 
+    $plusd = $plnative * $usdFX;
+    
     $output[] = array (
         $tradeDate,$pair,$plccy,$usdFX,$plnative,$plusd
     );
