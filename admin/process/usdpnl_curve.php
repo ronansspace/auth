@@ -9,9 +9,14 @@ if(tdrLoggedIn()){  }
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
-	} 
-	
-  $tdrID = $_SESSION['auth_id'];
+	}
+
+    $conn1 = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+    // Check connection
+    if ($conn1->connect_error) {
+        die("Connection failed: " . $conn1->connect_error);
+    }
+$tdrID = $_SESSION['auth_id'];
       	  
   $qry_type = $_GET['theid']; 
   
@@ -66,7 +71,7 @@ if($size <= 0){
 }
 
 $sql2 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-$result2 = $conn->query($sql1);
+$result2 = $conn1->query($sql1);
 $size = $result2->num_rows;
 
 
