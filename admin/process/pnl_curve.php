@@ -55,7 +55,7 @@ if($size <= 0){
 }
 while($fetch = $result->fetch_array()) {
     $output[] = array (
-        $fetch["Contract"],$fetch["OrderID"],$fetch["Pair"],$fetch["GrossProfit"],$fetch["BrokerCost"],$fetch["VenueCost"],$fetch["TotalCost"],$fetch["NetProfit"]
+        $fetch["Contract"],$fetch["OrderID"],$fetch["TradeDate"],$fetch["Pair"],$fetch["GrossProfit"],$fetch["BrokerCost"],$fetch["VenueCost"],$fetch["TotalCost"],$fetch["NetProfit"]
     );
 
 }

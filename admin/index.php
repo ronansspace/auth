@@ -213,6 +213,7 @@ if (tdrLoggedIn()) {
                     <tr>
                         <th>Contract</th>
                         <th>OrderID</th>
+                        <th>TradeDate</th>
                         <th>Pair</th>
                         <th>GrossProfit</th>
                         <th>BrokerCost</th>
@@ -678,7 +679,7 @@ include('footer.php');
                         for (var i = 0; i < s.length; i++) {
 
                             pTable.fnAddData([
-                                s[i][0], s[i][1], s[i][2], s[i][4], s[i][5], s[i][6], s[i][7], s[i][8]
+                                s[i][0], s[i][1], s[i][2], s[i][3], s[i][4], s[i][5], s[i][6], s[i][7], s[i][8]
                             ]);
 
                         } // End For
