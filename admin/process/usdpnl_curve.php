@@ -61,6 +61,11 @@ if($size <= 0){
     print json_encode("empty");
     exit;
 }
+
+while($fetch = $result->fetch_array()) {
+    $new_array[] = $fetch;
+
+}
 while($fetch = $result->fetch_array()) {
     $ccyPair = $fetch["Pair"];
     $checkCcy = substr($ccyPair, -3);
