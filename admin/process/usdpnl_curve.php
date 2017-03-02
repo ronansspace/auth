@@ -75,7 +75,7 @@ while($fetch = $result->fetch_array()) {
         $usdFX = 1;
     } else {
         $ccyPair = "USD" . $checkCcy;
-        $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+        $sql = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
         $result1 = $conn->query($sql);
         $size = $result1->num_rows;
         if($size != 0){
