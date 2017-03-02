@@ -110,13 +110,8 @@ $sql = "";
       }
       
       if($contract == "FXSP" && $id_contract <>"" && $isamend == "true"){
-              $sql = "update contract set tdrID = $tdrID, client = '$cl', ccy_pair = '$cp', buy_sell = '$b', Notional = $not, Inverted_price = '$I',
-                      rate = '$rate',counter_amt = '$ca',calc = '$calc',trade_date = '$tdate',value_date = '$vd',
-                      traded_as = '$ta',prime_broker = '$pb',order_entry_time = '$oet',expiry = '$exp',
-                      spcut = '$spcut',cut_time = '$ct',settlement = '$st',fx_pair_id = '$fpi',matching_date = '$md',contract ='$contract',account = '$account', status = '$status',
-                      client_trader = $client_trader, pnl_ccy_pair = '$pnl_ccy_pair', pnl_rate = $pnl_rate, pnl_counter_amt = $pnl_counter_amt
+              $sql = "update contract set fx_pair_id = '$fpi'
                       where id_contract = $id_contract";
-      
       }
       
       if($contract == "FXFW"){
