@@ -55,9 +55,6 @@ $tdrID = $_SESSION['auth_id'];
       $mktDate = $dt_first;
   }
 
-$bits = explode('/',$mktDate);
-$mktDate = $bits[2].$bits[1].$bits[0];
-
 $sql = "call get_usdpl('$startDate','$endDate')";
 $result = $conn->query($sql);
 $size = $result->num_rows;
@@ -78,6 +75,9 @@ foreach ($new_array as $record) {
     $plccy = $record["PLCcy"];
     $plnative = $record["PLNative"];
     $plusd = $record["PLUSD"];
+
+    $bits = explode('/',$tradeDate);
+    $mktDate = $bits[2].$bits[1].$bits[0];
 
     if($plccy == "USD") {
         $usdFX = 1;
@@ -104,7 +104,7 @@ foreach ($new_array as $record) {
     }
 
     $plusd = $plnative * $usdFX;
-    
+
     $output[] = array (
         $tradeDate,$pair,$plccy,$usdFX,$plnative,$plusd
     );
