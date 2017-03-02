@@ -81,7 +81,7 @@ if(tdrLoggedIn()){
                           <th>CCY Pair</th>
                           <th>Rate</th>
                          
-                          <th width="25%">Date</th>                         
+                          <th width="25%">Last Update</th>
                     </tr>
                 </thead>
                 
