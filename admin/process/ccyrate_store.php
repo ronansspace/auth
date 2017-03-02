@@ -38,7 +38,7 @@ if(tdrLoggedIn()){
                       
     } else {
     
-          $sql = "update ccyrate set ccypair = '$ccypair', rate = $rate, date = '$date'
+          $sql = "update ccyrate set ccypair = '$ccypair', rate = $rate
                   where id = $id_user";    
     }
     
