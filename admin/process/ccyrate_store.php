@@ -14,6 +14,7 @@ if(tdrLoggedIn()){
     
     $ccypair = strtoupper($_POST['ccy_pair']);
     $rate = $_POST['rate'];
+    $datadate = $_POST['datadate'];
     //$date = $_POST['date'];
     
     $date = str_replace("/", "-", $_POST['ccy_date']);
@@ -33,8 +34,8 @@ if(tdrLoggedIn()){
             exit;         
           }           
     
-          $sql = "insert into ccyrate(ccypair, rate, date)
-                  values ('$ccypair', $rate, '$date')";   
+          $sql = "insert into ccyrate(trade_date, ccypair, rate, date)
+                  values ('$datadate', $ccypair', $rate, '$date')";
                       
     } else {
     

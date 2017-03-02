@@ -90,12 +90,17 @@ if(!tdrLoggedIn()){
           <table class="table" border="0">                	
             <tbody>     
                            	
-              <tr>                        	
+              <tr>
+                  <td>Date:</td>
+                  <td>
+                      <input tabindex="1" class="fxsp_date" type="text" name="datadate" value="<?=$datadate;?>">
+                  </td>
+
                   <td>CCY Pair:</td>
                   <td>
                         <!--<input tabindex="1" class="fxsp_rate" type="text" name="ccy_pair" value="<=$pnl_ccy_pair;?>">-->
                         
-                        <select id="ccy_pair" name="ccy_pair" tabindex="1">
+                        <select id="ccy_pair" name="ccy_pair" tabindex="2">
                                                    
                         <?php
                         //if($client <> ""){
@@ -122,7 +127,7 @@ if(!tdrLoggedIn()){
                    
                   <td>Rate:</td>
                   <td>
-                      <input tabindex="2" class="fxsp_rate" type="text" name="rate" value="<?=$rate;?>">
+                      <input tabindex="3" class="fxsp_rate" type="text" name="rate" value="<?=$rate;?>">
                   </td>   
 
                          
