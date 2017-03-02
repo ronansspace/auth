@@ -72,20 +72,20 @@ while($fetch = $result->fetch_array()) {
     } else {
         $ccyPair = "USD" . $checkCcy;
         $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-        $result = $conn->query($sql);
-        $size = $result->num_rows;
+        $result1 = $conn->query($sql);
+        $size = $result1->num_rows;
         if($size != 0){
-            while($fetch = $result->fetch_array()) {
-                $usdFX = 1 / $fetch["rate"];
+            while($fetch1 = $result1->fetch_array()) {
+                $usdFX = 1 / $fetch1["rate"];
             }
         } else {
             $ccyPair = $checkCcy . "USD";
             $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-            $result = $conn->query($sql);
-            $size = $result->num_rows;
+            $result2 = $conn->query($sql);
+            $size = $result2->num_rows;
             if($size != 0){
-                while($fetch = $result->fetch_array()) {
-                    $usdFX = $fetch["rate"];
+                while($fetch2 = $result2->fetch_array()) {
+                    $usdFX = $fetch2["rate"];
                 }
             }
         }
