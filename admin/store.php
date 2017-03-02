@@ -14,6 +14,7 @@ $tdrID = $_SESSION['auth_id'];
 $contract = $_GET['contract'];
 $account  = $_GET['account'];
 $status  = $_GET['status'];
+$isamend  = $_GET['amend'];
 
 $id_contract = $_POST['id_contract'];
 
@@ -108,7 +109,7 @@ $sql = "";
               '$st','$fpi','$md','$contract','$account','$status',$client_trader,'CM', '$pnl_ccy_pair', $pnl_rate, $pnl_counter_amt)";
       }
       
-      /*if($contract == "FXSP" && $id_contract <>""){
+      if($contract == "FXSP" && $id_contract <>"" && $isamend == "true"){
               $sql = "update contract set tdrID = $tdrID, client = '$cl', ccy_pair = '$cp', buy_sell = '$b', Notional = $not, Inverted_price = '$I',
                       rate = '$rate',counter_amt = '$ca',calc = '$calc',trade_date = '$tdate',value_date = '$vd',
                       traded_as = '$ta',prime_broker = '$pb',order_entry_time = '$oet',expiry = '$exp',
@@ -116,7 +117,7 @@ $sql = "";
                       client_trader = $client_trader, pnl_ccy_pair = '$pnl_ccy_pair', pnl_rate = $pnl_rate, pnl_counter_amt = $pnl_counter_amt
                       where id_contract = $id_contract";
       
-      }*/
+      }
       
       if($contract == "FXFW"){
         	$mid_price = str_replace(',','',$_POST['mid_price']);

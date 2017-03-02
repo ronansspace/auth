@@ -2891,7 +2891,7 @@ else{
     ?>
     
     <input type="button" style="<?=$two_button;?>" class="btn btn-success btn-sm delete_button" value="Delete">
-    <input type="button" style="<?=$two_button;?>" class="btn btn-success btn-sm amend_button" value="Amend & Close">  
+    <input type="button" style="<?=$two_button;?>" class="btn btn-success btn-sm" value="Amend &amp; Close" onclick="amend_close();">
     
     
     <input type="button" class="btn btn-danger btn-sm close_button" value="Cancel">

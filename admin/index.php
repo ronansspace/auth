@@ -1172,6 +1172,47 @@ include('footer.php');
 
         }
 
+        function amend_close() {
+
+            var form_check = check_form();
+
+            if (form_check === false) {
+
+                return false;
+
+            } else {
+
+                var val = $("#contract").val();
+                val = "form#" + val + "_form";
+                $.ajax({
+                    //url: "http://www.curvemarkets.com/auth/admin/store.php?contract="+$("#contract").val()+"&account="+$("#account").val(),
+                    url: "store.php?contract=" + $("#contract").val() + "&account=" + $("#account").val() + "&status=" + $("#status").val() + "&amend=true",
+                    data: $(val).serialize(),
+                    async: false,
+                    method: 'POST',
+                }).done(function (data) {
+
+                    //document.write(data);
+
+                    window.parent.getrecord_max();
+                    window.parent.getrecord_pnl();
+
+                    $('#FXSP,#FXFW,#FXNDF,#FXOPT,#EOPT').hide();
+                    $('#container2').hide();
+                    $('#back').hide();
+                    window.clearInterval(timeupdate);
+                    getrecord();
+
+                    window.self.close();
+                    $("#back").html("");
+
+
+                });
+
+            }
+
+        }
+
 
         function save_new() {
 
