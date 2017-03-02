@@ -53,6 +53,9 @@ if(tdrLoggedIn()){  }
 $bits = explode('/',$mktDate);
 $mktDate = $bits[2].$bits[1].$bits[0];
 
+$sql1 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+$result1 = $conn->query($sql1);
+$size = $result1->num_rows;
 
 $sql = "call get_usdpl('$startDate','$endDate')";
 $result = $conn->query($sql);
@@ -68,7 +71,6 @@ while($fetch = $result->fetch_array()) {
 
 foreach ($new_array as $record) {
     $ccyPair = $record["Pair"];
-    $checkCcy = substr($ccyPair, -3);
     $usdFX = "1";
     $tradeDate = $record["TradeDate"];
     $pair = $record["Pair"];
@@ -76,10 +78,10 @@ foreach ($new_array as $record) {
     $plnative = $record["PLNative"];
     $plusd = $record["PLUSD"];
 
-    if($checkCcy == "USD") {
+    if($plccy == "USD") {
         $usdFX = 1;
     } else {
-        $ccyPair = "USD" . $checkCcy;
+        $ccyPair = "USD" . $plccy;
         $sql1 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
         $result1 = $conn->query($sql1);
         $size = $result1->num_rows;
@@ -88,7 +90,7 @@ foreach ($new_array as $record) {
                 $usdFX = 1 / $fetch1["rate"];
             }
         } else {
-            $ccyPair = $checkCcy . "USD";
+            $ccyPair = $plccy . "USD";
             $sql2 = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
             $result2 = $conn->query($sql2);
             $size = $result2->num_rows;
