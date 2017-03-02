@@ -5,6 +5,7 @@ require_once('../inc/def.php');
 
 $id_user = ""; 
 $pnl_ccy_pair = "";
+$data_date = "";
 $rate = "";
 $date = ""; 
 
@@ -26,7 +27,8 @@ if(isset($_GET['id'])){
         $sql = "SELECT * FROM ccyrate where id = $id_user";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        
+
+        $datadate = $row['trade_date'];
         $pnl_ccy_pair = $row['ccypair'];
         $rate = $row['rate'];
        
