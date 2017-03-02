@@ -61,6 +61,12 @@ while($fetch = $result->fetch_array()) {
     $ccyPair = $fetch["Pair"];
     $checkCcy = substr($ccyPair, -3);
     $usdFX = 1;
+
+    $tradeDate = $fetch["TradeDate"];
+    $pair = $fetch["Pair"];
+    $plnative = $fetch["PLNative"];
+    $plusd = $fetch["PLUSD"];
+
     if($checkCcy == "USD") {
         $usdFX = 1;
     } else {
@@ -85,10 +91,8 @@ while($fetch = $result->fetch_array()) {
         }
     }
 
-
-
     $output[] = array (
-        $fetch["TradeDate"],$fetch["Pair"],$usdFX,$fetch["PLNative"],$fetch["PLUSD"]
+        $tradeDate,$pair,$usdFX,$plnative,$plusd
     );
 
 }
