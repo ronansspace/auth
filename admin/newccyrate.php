@@ -124,11 +124,7 @@ if(!tdrLoggedIn()){
                   <td>
                       <input tabindex="2" class="fxsp_rate" type="text" name="rate" value="<?=$rate;?>">
                   </td>   
-                  
-                  <td>Date:</td>
-                  <td>
-                      <input tabindex="3" type="text" name="ccy_date" value="<?=$date;?>" class="all_dates">
-                  </td>                            
+
                          
               </tr>  
                             
