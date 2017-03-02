@@ -24,7 +24,7 @@ if(tdrLoggedIn()){
     
     if($id_user == ""){
     
-          $sql_a = "SELECT * FROM ccyrate where ccypair = '$ccypair'";
+          $sql_a = "SELECT * FROM ccyrate where ccypair = '$ccypair' and trade_date = '$datadate'";
         	$result_a = $conn->query($sql_a);
                   
           $size = $result_a->num_rows;
