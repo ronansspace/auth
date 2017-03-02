@@ -64,7 +64,6 @@ if($size <= 0){
 
 while($fetch = $result->fetch_array()) {
     $new_array[] = $fetch;
-
 }
 
 foreach ($new_array as $record) {
@@ -73,6 +72,7 @@ foreach ($new_array as $record) {
     $usdFX = "1";
     $tradeDate = $record["TradeDate"];
     $pair = $record["Pair"];
+    $plccy = $record["PLCcy"];
     $plnative = $record["PLNative"];
     $plusd = $record["PLUSD"];
 
@@ -101,7 +101,7 @@ foreach ($new_array as $record) {
     }
 
     $output[] = array (
-        $tradeDate,$pair,$usdFX,$plnative,$plusd
+        $tradeDate,$pair,$plccy,$usdFX,$plnative,$plusd
     );
 
 }
