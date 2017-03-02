@@ -66,15 +66,15 @@ while($fetch = $result->fetch_array()) {
     $new_array[] = $fetch;
 
 }
-while($fetch = $result->fetch_array()) {
-    $ccyPair = $fetch["Pair"];
+
+foreach ($new_array as $record) {
+    $ccyPair = $record["Pair"];
     $checkCcy = substr($ccyPair, -3);
     $usdFX = "1";
-
-    $tradeDate = $fetch["TradeDate"];
-    $pair = $fetch["Pair"];
-    $plnative = $fetch["PLNative"];
-    $plusd = $fetch["PLUSD"];
+    $tradeDate = $record["TradeDate"];
+    $pair = $record["Pair"];
+    $plnative = $record["PLNative"];
+    $plusd = $record["PLUSD"];
 
     if($checkCcy == "USD") {
         $usdFX = 1;
