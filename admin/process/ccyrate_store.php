@@ -34,7 +34,7 @@ if(tdrLoggedIn()){
           }           
     
           $sql = "insert into ccyrate(trade_date, ccypair, rate, date)
-                  values ('$datadate', $ccypair', $rate, '$trade_date')";
+                  values ('$datadate', '$ccypair', $rate, '$trade_date')";
                       
     } else {
     
