@@ -35,15 +35,19 @@ if(tdrLoggedIn()){  }
   }else if($qry_type == 2){
       $startDate = $dt_today;
       $endDate = $dt_today;
+      $mktDate = $dt_today;
   }else if($qry_type == 3){
       $startDate = '01/01/1970';
       $endDate = $dt_today;
+      $mktDate = $dt_today;
   }else if($qry_type == 4){
       $startDate = $dt_today_ten;
       $endDate = $dt_today;
+      $mktDate = $dt_today;
   }else if($qry_type == 5){
       $startDate = $dt_first;
       $endDate = $dt_sec;
+      $mktDate = $dt_first;
   }
 
 $sql = "call get_usdpl('$startDate','$endDate')";
@@ -54,8 +58,37 @@ if($size <= 0){
     exit;
 }
 while($fetch = $result->fetch_array()) {
+    $ccyPair = $fetch["Pair"];
+    $checkCcy = substr($ccyPair, -3);
+    $usdFX = 1;
+    if($checkCcy == "USD") {
+        $usdFX = 1;
+    } else {
+        $ccyPair = "USD" . $checkCcy;
+        $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+        $result = $conn->query($sql);
+        $size = $result->num_rows;
+        if($size != 0){
+            while($fetch = $result->fetch_array()) {
+                $usdFX = 1 / $fetch["rate"];
+            }
+        } else {
+            $ccyPair = $checkCcy . "USD";
+            $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+            $result = $conn->query($sql);
+            $size = $result->num_rows;
+            if($size != 0){
+                while($fetch = $result->fetch_array()) {
+                    $usdFX = $fetch["rate"];
+                }
+            }
+        }
+    }
+
+
+
     $output[] = array (
-        $fetch["TradeDate"],$fetch["Pair"],$fetch["FxUSD"],$fetch["PLNative"],$fetch["PLUSD"]
+        $fetch["TradeDate"],$fetch["Pair"],$usdFX,$fetch["PLNative"],$fetch["PLUSD"]
     );
 
 }
