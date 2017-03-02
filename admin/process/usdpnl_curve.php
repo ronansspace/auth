@@ -58,10 +58,6 @@ $tdrID = $_SESSION['auth_id'];
 $bits = explode('/',$mktDate);
 $mktDate = $bits[2].$bits[1].$bits[0];
 
-$sql1 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-$result1 = $conn->query($sql1);
-$size = $result1->num_rows;
-
 $sql = "call get_usdpl('$startDate','$endDate')";
 $result = $conn->query($sql);
 $size = $result->num_rows;
@@ -69,11 +65,6 @@ if($size <= 0){
     print json_encode("empty");
     exit;
 }
-
-$sql2 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-$result2 = $conn1->query($sql1);
-$size = $result2->num_rows;
-
 
 while($fetch = $result->fetch_array()) {
     $new_array[] = $fetch;
@@ -93,7 +84,7 @@ foreach ($new_array as $record) {
     } else {
         $ccyPair = "USD" . $plccy;
         $sql1 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-        $result1 = $conn->query($sql1);
+        $result1 = $conn1->query($sql1);
         $size = $result1->num_rows;
         if($size != 0){
             while($fetch1 = $result1->fetch_array()) {
@@ -102,7 +93,7 @@ foreach ($new_array as $record) {
         } else {
             $ccyPair = $plccy . "USD";
             $sql2 = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-            $result2 = $conn->query($sql2);
+            $result2 = $conn1->query($sql2);
             $size = $result2->num_rows;
             if($size != 0){
                 while($fetch2 = $result2->fetch_array()) {
