@@ -77,7 +77,7 @@ if(tdrLoggedIn()){
                     <tr>                   
                           <th width="2%"> </th>  
                           <th width="4%">ID</th>
-                        
+                          <th>Date</th>
                           <th>CCY Pair</th>
                           <th>Rate</th>
                          
@@ -212,7 +212,7 @@ if(tdrLoggedIn()){
                             { 
                                   
                                   oTable.fnAddData([ "<input type='checkbox' name='id_trades' class='check_box' value='"+s[i][0]+"'/>", s[i][0], s[i][1], 
-                                    s[i][2], s[i][3]
+                                    s[i][2], s[i][3], s[i][4]
                                   ]);                                       
                                   var theNode = oTable.fnSettings().aoData[i].nTr;
                                   theNode.setAttribute('data-did', s[i][0]);

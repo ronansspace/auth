@@ -35,7 +35,7 @@ if(tdrLoggedIn()){  }
         $rate =  number_format($fetch["rate"], 5, '.', ',');
                                    
         $output[] = array (           
-            $fetch["id"],$fetch["ccypair"],$rate,$date
+            $fetch["id"],$fetch["trade_date"],$fetch["ccypair"],$rate,$date
         );
         
   }
