@@ -18,7 +18,8 @@ if(tdrLoggedIn()){
     //$date = $_POST['date'];
 
     $trade_date = date('d/m/Y');
-    
+    $timestamp = date('Y-m-d H:i:s');
+
     $sql = "";
     
     if($id_user == ""){
@@ -34,11 +35,11 @@ if(tdrLoggedIn()){
           }           
     
           $sql = "insert into ccyrate(trade_date, ccypair, rate, date)
-                  values ('$datadate', '$ccypair', $rate, '$trade_date')";
+                  values ('$datadate', '$ccypair', $rate, '$timestamp')";
                       
     } else {
     
-          $sql = "update ccyrate set ccypair = '$ccypair', rate = $rate
+          $sql = "update ccyrate set ccypair = '$ccypair', rate = $rate, date='$timestamp'
                   where id = $id_user";    
     }
     
