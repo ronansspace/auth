@@ -65,6 +65,11 @@ if($size <= 0){
     exit;
 }
 
+$sql2 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+$result2 = $conn->query($sql1);
+$size = $result2->num_rows;
+
+
 while($fetch = $result->fetch_array()) {
     $new_array[] = $fetch;
 }
