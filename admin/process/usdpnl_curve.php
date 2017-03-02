@@ -60,7 +60,7 @@ if($size <= 0){
 while($fetch = $result->fetch_array()) {
     $ccyPair = $fetch["Pair"];
     $checkCcy = substr($ccyPair, -3);
-    $usdFX = 1;
+    $usdFX = "1";
 
     $tradeDate = $fetch["TradeDate"];
     $pair = $fetch["Pair"];
