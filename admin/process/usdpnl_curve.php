@@ -75,8 +75,8 @@ while($fetch = $result->fetch_array()) {
         $usdFX = 1;
     } else {
         $ccyPair = "USD" . $checkCcy;
-        $sql = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-        $result1 = $conn->query($sql);
+        $sql1 = "SELECT * from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+        $result1 = $conn->query($sql1);
         $size = $result1->num_rows;
         if($size != 0){
             while($fetch1 = $result1->fetch_array()) {
@@ -84,8 +84,8 @@ while($fetch = $result->fetch_array()) {
             }
         } else {
             $ccyPair = $checkCcy . "USD";
-            $sql = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
-            $result2 = $conn->query($sql);
+            $sql2 = "SELECT rate from ccyrate where ccypair='$ccyPair' and trade_date='$mktDate'";
+            $result2 = $conn->query($sql2);
             $size = $result2->num_rows;
             if($size != 0){
                 while($fetch2 = $result2->fetch_array()) {
