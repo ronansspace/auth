@@ -13,20 +13,19 @@ if(tdrLoggedIn()){  }
 	
   $tdrID = $_SESSION['auth_id'];
 
-$dt_today = date('Y-m-d');
-
-$dt_first = str_replace("/", "-", strtotime($_GET['stdate']));
-$dt_first = date('Y-m-d', strtotime($_GET['stdate']));
-
-$dt_sec = str_replace("/", "-", $_GET['endate']);
-$dt_sec = date('Y-m-d', strtotime($dt_sec));
+$dt_today = date('Ymd');
 
 $qry_type = $_GET['theid'];
 
+$dt_first = str_replace("/", "-", $_GET['stdate']);
+$dt_first = date('Ymd', strtotime($dt_first));
+$dt_sec = str_replace("/", "-", $_GET['endate']);
+$dt_sec = date('Ymd', strtotime($dt_sec));
+
 if($qry_type == 2){
-    $xtra_qry =  "and str_to_date( trade_date, '%d/%m/%Y') = '$dt_today'";
+    $xtra_qry =  "and TradeDate = '$dt_today'";
 }else if($qry_type == 5){
-    $xtra_qry =  " and (str_to_date( trade_date, '%d/%m/%Y') between '$dt_first' and '$dt_sec') ";
+    $xtra_qry =  " and (TradeDate >= '$dt_first' and TradeDate <= '$dt_sec') ";
 }
 
   $sql = "SELECT * FROM ccyrate where 1=1 $xtra_qry";
