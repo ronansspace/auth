@@ -63,6 +63,18 @@ if(tdrLoggedIn()){
             <br style="clear:both">
         </header>
 
+           <div class="btn-group" data-toggle="buttons">
+               <label class="btn btn-sm btn-default active">
+                   <input type="radio" name="options" value="5" autocomplete="off"> By Date
+               </label>
+           </div>
+
+           <div id="tradebdate" style="width:20%;display:none;">
+               <input type="text" class="input-xs" placeholder="Start Date" name="stDate" id="stDate">
+               <input type="text" class="input-xs" placeholder="End Date" name="enDate" id="enDate">
+               <input type="button" class="btn btn-xs btn-default" id="date_filter_submit" value="Submit">
+           </div>
+
         <div style="width:70%;margin: 0 auto;">
             <table id="jsontable_users" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
             
@@ -110,8 +122,37 @@ if(tdrLoggedIn()){
       
       $(document).ready(function() {
             getrecord_max();                        
-      });     
-      
+      });
+
+
+      $('input[name="options"]').change(function () {
+
+          var all_val = $(this).val();
+          $("#tradebdate").hide();
+
+          $("#tradebdate").css('display', 'inline');
+          $("#tradebdate").show();
+          $('input[name="trade_filter"]').val(5);
+
+      });
+
+      $(document).on("click", "#date_filter_submit", function () {
+
+          var stDate = $('input[name=stDate]').val();
+          var enDate = $('input[name=enDate]').val();
+
+
+          if (stDate == "" || enDate == "") {
+
+              alert("Please choose date range.");
+              return false;
+
+          } else {
+              getrecord_max();
+          }
+
+      });
+
       $(document).on("click", ".record_new", function (){
               
               var page = "newccyrate.php";                     
@@ -188,11 +229,15 @@ if(tdrLoggedIn()){
                "processing": true,
                "scrollX": true,
                 "order": [[ 2, "desc" ]]
-            });                                                                                    
-                     
+            });
+
+          var all_val = $('input[name=options]:checked').val();
+          var stDate = $('input[name=stDate]').val();
+          var enDate = $('input[name=enDate]').val();
+
             $.ajax({
             
-                  url: 'process/all_ccyrates.php',
+                  url: 'process/all_ccyrates.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
                   dataType: 'json',
                   success: function(s){ 
                       

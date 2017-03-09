@@ -12,10 +12,18 @@ if(tdrLoggedIn()){  }
 	} 
 	
   $tdrID = $_SESSION['auth_id'];
-      	  
-  
-    
-  $sql = "SELECT * FROM ccyrate";
+
+$dt_today = date('Y-m-d');
+
+$dt_first = str_replace("/", "-", strtotime($_GET['stdate']));
+$dt_first = date('Y-m-d', strtotime($_GET['stdate']));
+
+$dt_sec = str_replace("/", "-", $_GET['endate']);
+$dt_sec = date('Y-m-d', strtotime($dt_sec));
+
+$xtra_qry =  " and (str_to_date( trade_date, '%d/%m/%Y') between '$dt_first' and '$dt_sec') ";
+
+  $sql = "SELECT * FROM ccyrate where 1=1 $xtra_qry";
     
 	$result = $conn->query($sql);
     
