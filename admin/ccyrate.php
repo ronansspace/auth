@@ -179,6 +179,11 @@ if(tdrLoggedIn()){
               });
           
       });
+
+      var result_count = 0;
+      var tableid = 1;
+      $("#stDate").datepicker({dateFormat: 'dd/mm/yy'});
+      $("#enDate").datepicker({dateFormat: 'dd/mm/yy'});
       
       $(document).on("click", ".record_delete", function (){
       
