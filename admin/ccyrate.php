@@ -62,15 +62,8 @@ if(tdrLoggedIn()){
             </h3>
             <br style="clear:both">
         </header>
-        
-        <div class="controls-div">
-            <div class="btn-group" data-toggle="buttons">
-                <input type="button" class="btn btn-primary btn-sm record_new" value="New CCY Rate" style="margin-right:0px;">
-                <input type="button" class="btn btn-danger btn-sm record_delete" value="Delete CCY Rate" style="margin-right:5px;">
-            </div>
-        </div>
-                                   
-        <div style="width:70%;margin: 0 auto;">             
+
+        <div style="width:70%;margin: 0 auto;">
             <table id="jsontable_users" class="display table table-hover table-striped table-bordered nowrap" cellspacing="0" width="100%">
             
                 <thead>
