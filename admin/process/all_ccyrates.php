@@ -23,9 +23,9 @@ $dt_sec = str_replace("/", "-", $_GET['endate']);
 $dt_sec = date('Ymd', strtotime($dt_sec));
 
 if($qry_type == 2){
-    $xtra_qry =  "and TradeDate = '$dt_today'";
+    $xtra_qry =  "and trade_date = '$dt_today'";
 }else if($qry_type == 5){
-    $xtra_qry =  " and (TradeDate >= '$dt_first' and TradeDate <= '$dt_sec') ";
+    $xtra_qry =  " and (trade_date >= '$dt_first' and trade_date <= '$dt_sec') ";
 }
 
   $sql = "SELECT * FROM ccyrate where 1=1 $xtra_qry";
