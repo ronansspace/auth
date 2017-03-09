@@ -157,7 +157,7 @@ if (tdrLoggedIn()) {
             </div>
             <div id="brokerplorder" style="width:60%;float:left;display:inline;padding-left:10px;">
                 <h4 class="table_heading">Broker PL by Order</h4>
-                <table id="jsontable_brokerpl" class="display table table-hover table-striped table-bordered nowrap"
+                <table id="jsontable_brokerpnl" class="display table table-hover table-striped table-bordered nowrap"
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
