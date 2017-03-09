@@ -65,6 +65,9 @@ if(tdrLoggedIn()){
 
            <div class="btn-group" data-toggle="buttons">
                <label class="btn btn-sm btn-default active">
+                   <input type="radio" name="options" value="2" autocomplete="off" checked> Today
+               </label>
+               <label class="btn btn-sm btn-default">
                    <input type="radio" name="options" value="5" autocomplete="off"> By Date
                </label>
            </div>
@@ -130,9 +133,17 @@ if(tdrLoggedIn()){
           var all_val = $(this).val();
           $("#tradebdate").hide();
 
-          $("#tradebdate").css('display', 'inline');
-          $("#tradebdate").show();
-          $('input[name="trade_filter"]').val(5);
+          if (all_val == 2) {
+              $('input[name="trade_filter"]').val(2);
+          } else if (all_val == 5) {
+              $("#tradebdate").css('display', 'inline');
+              $("#tradebdate").show();
+              $('input[name="trade_filter"]').val(5);
+          }
+
+          if (all_val != 5) {
+              getrecord_max();
+          }
 
       });
 

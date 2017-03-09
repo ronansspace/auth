@@ -21,7 +21,11 @@ $dt_first = date('Y-m-d', strtotime($_GET['stdate']));
 $dt_sec = str_replace("/", "-", $_GET['endate']);
 $dt_sec = date('Y-m-d', strtotime($dt_sec));
 
-$xtra_qry =  " and (str_to_date( trade_date, '%d/%m/%Y') between '$dt_first' and '$dt_sec') ";
+if($qry_type == 2){
+    $xtra_qry =  "and str_to_date( trade_date, '%d/%m/%Y') = '$dt_today'";
+}else if($qry_type == 5){
+    $xtra_qry =  " and (str_to_date( trade_date, '%d/%m/%Y') between '$dt_first' and '$dt_sec') ";
+}
 
   $sql = "SELECT * FROM ccyrate where 1=1 $xtra_qry";
     
