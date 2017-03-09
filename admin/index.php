@@ -121,6 +121,10 @@ if (tdrLoggedIn()) {
                     <input type="button" class="btn btn-info btn-sm fix_detail" value="FIX" style="">
                 </div>
 
+                <div class="btn-group" data-toggle="buttons">
+                    <input type="button" class="btn btn-info btn-sm broker_pl" value="Broker PL" style="">
+                </div>
+
                 <input type="hidden" name="trade_filter" value="1">
 
             </div>
@@ -147,6 +151,43 @@ if (tdrLoggedIn()) {
                         <th>P/C</th>
                         <th>Strike</th>
                         <th>Expiry Date</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div id="brokerplorder" style="width:60%;float:left;display:inline;padding-left:10px;">
+                <h4 class="table_heading">Broker PL by Order</h4>
+                <table id="jsontable_brokerpl" class="display table table-hover table-striped table-bordered nowrap"
+                       cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Contract</th>
+                        <th>OrderID</th>
+                        <th>Broker</th>
+                        <th>TradeDate</th>
+                        <th>Pair</th>
+                        <th>GrossProfit</th>
+                        <th>BrokerCost</th>
+                        <th>VenueCost</th>
+                        <th>TotalCost</th>
+                        <th>NetProfit</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div id="brokerusdpl" style="width:40%;float:left;display:inline;padding-left:10px;">
+                <h4 class="table_heading">Broker PL by Pair</h4>
+                <table id="jsontable_brokerusdpnl" class="display table table-hover table-striped table-bordered nowrap"
+                       cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>TradeDate</th>
+                        <th>Pair</th>
+                        <th>Ccy</th>
+                        <th>FX USD</th>
+                        <th>PL CCY</th>
+                        <th>PL USD</th>
+                        <th>Broker</th>
                     </tr>
                     </thead>
                 </table>
@@ -342,6 +383,8 @@ include('footer.php');
                         getrecord_max();
                         getrecord_pnl();
                         getrecord_usdpnl();
+                        getrecord_brokerpnl();
+                        getrecord_brokerusdpnl();
                     },
                     cache: false,
                     contentType: false,
@@ -381,6 +424,11 @@ include('footer.php');
 
         $(document).on("click", ".option_expiries", function () {
             $("#optionexpiries").toggle();
+        });
+
+        $(document).on("click", ".broker_pl", function () {
+            $("#brokerplorder").toggle();
+            $("#brokerusdpl").toggle();
         });
 
         $(document).on("click", ".fix_detail", function () {
@@ -424,6 +472,8 @@ include('footer.php');
                                 getrecord_max();
                                 getrecord_pnl();
                                 getrecord_usdpnl();
+                                getrecord_brokerpnl();
+                                getrecord_brokerusdpnl();
                             } else if (data == "error_client_email") {
                                 alert("Client trader email not provided");
                             } else if (data == "error_client_trader") {
@@ -469,6 +519,8 @@ include('footer.php');
                 getfixexecs();
                 getrecord_pnl();
                 getrecord_usdpnl();
+                getrecord_brokerpnl();
+                getrecord_brokerusdpnl();
             }
 
 
@@ -491,6 +543,8 @@ include('footer.php');
                 getfixexecs();
                 getrecord_pnl();
                 getrecord_usdpnl();
+                getrecord_brokerpnl();
+                getrecord_brokerusdpnl();
             }
 
 
@@ -596,6 +650,8 @@ include('footer.php');
                                     getrecord_max();
                                     getrecord_pnl();
                                     getrecord_usdpnl();
+                                    getrecord_brokerpnl();
+                                    getrecord_brokerusdpnl();
                                 } else {
                                     alert('Error delteing record, please try again!');
                                 }
@@ -663,12 +719,16 @@ include('footer.php');
         //alert();
         $(document).ready(function () {
             $("#optionexpiries").hide();
+            $("#brokerplorder").hide();
+            $("#brokerusdpl").hide();
             $("#fixdetail").hide();
             getrecord_max();
             getexpiries();
             getfixexecs();
             getrecord_pnl();
             getrecord_usdpnl();
+            getrecord_brokerpnl();
+            getrecord_brokerusdpnl();
         });
 
         function getrecord_pnl() {
@@ -759,6 +819,93 @@ include('footer.php');
 
         }
 
+        function getrecord_brokerpnl() {
+
+            $('#jsontable_brokerpnl').dataTable().fnDestroy();
+            var pTable = $('#jsontable_brokerpnl').dataTable({
+                "iDisplayLength": 25,
+                "processing": true,
+                "scrollX": true
+            });
+
+            var all_val = $('input[name=options]:checked').val();
+            var stDate = $('input[name=stDate]').val();
+            var enDate = $('input[name=enDate]').val();
+
+            $.ajax({
+
+                url: 'process/brokerpnl_curve.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
+                dataType: 'json',
+                success: function (s) {
+                    pTable.fnClearTable();
+
+                    if (s == "empty") {
+
+
+                    } else {
+
+                        for (var i = 0; i < s.length; i++) {
+
+                            pTable.fnAddData([
+                                s[i][0], s[i][1], s[i][2], s[i][3], s[i][4], s[i][5], s[i][6], s[i][7], s[i][8], s[i][9]
+                            ]);
+
+                        } // End For
+
+                    }
+
+                },
+                error: function (e) {
+
+                    alert(e);
+                }
+            });
+
+        }
+
+        function getrecord_brokerusdpnl() {
+
+            $('#jsontable_brokerusdpnl').dataTable().fnDestroy();
+            var pTable = $('#jsontable_brokerusdpnl').dataTable({
+                "iDisplayLength": 25,
+                "processing": true,
+                "scrollX": true
+            });
+
+            var all_val = $('input[name=options]:checked').val();
+            var stDate = $('input[name=stDate]').val();
+            var enDate = $('input[name=enDate]').val();
+
+            $.ajax({
+
+                url: 'process/brokerusdpnl_curve.php?method=fetchdata&theid=' + all_val + '&stdate=' + stDate + '&endate=' + enDate + " ",
+                dataType: 'json',
+                success: function (s) {
+                    pTable.fnClearTable();
+
+                    if (s == "empty") {
+
+
+                    } else {
+
+                        for (var i = 0; i < s.length; i++) {
+
+                            pTable.fnAddData([
+                                s[i][0], s[i][1], s[i][2], s[i][3], s[i][4], s[i][5], s[i][6]
+                            ]);
+
+                        } // End For
+
+                    }
+
+                },
+                error: function (e) {
+
+                    alert(e);
+                }
+            });
+
+        }
 
         function getrecord_max() {
 
@@ -1262,6 +1409,8 @@ include('footer.php');
                     window.parent.getrecord_max();
                     window.parent.getrecord_pnl();
                     window.parent.getrecord_usdpnl();
+                    window.parent.getrecord_brokerpnl();
+                    window.parent.getrecord_brokerusdpnl();
 
                     $('#FXSP,#FXFW,#FXNDF,#FXOPT,#EOPT').hide();
                     $('#container2').hide();
