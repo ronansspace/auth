@@ -15,6 +15,7 @@ if(tdrLoggedIn()){
     $client = $_POST['client'];
     $email = $_POST['email'];
     $email_cc = $_POST['email_cc'];
+    $email_bcc = $_POST['email_cc'];
     $trader_id = $_POST['trader_id'];
     $broker = $_POST['broker'];
 
@@ -22,8 +23,8 @@ if(tdrLoggedIn()){
     
     if($id_client == ""){
     
-          $sql = "insert into client_trader(name, email, email_cc, client_id, broker)
-                  values ('$client', '$email', '$email_cc', $trader_id, '$broker')";
+          $sql = "insert into client_trader(name, email, email_cc, client_id, broker, email_bcc)
+                  values ('$client', '$email', '$email_cc', $trader_id, '$broker', '$email_bcc')";
                       
     } else {
     
