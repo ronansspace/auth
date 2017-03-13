@@ -23,7 +23,7 @@ if(tdrLoggedIn()){
     if($id_client == ""){
     
           $sql = "insert into client_trader(name, email, email_cc, client_id, broker)
-                  values ('$client', '$email', '$email_cc', $trader_id, $broker)";
+                  values ('$client', '$email', '$email_cc', $trader_id, '$broker')";
                       
     } else {
     
