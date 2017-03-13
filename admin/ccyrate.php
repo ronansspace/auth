@@ -184,7 +184,7 @@ if(tdrLoggedIn()){
       var tableid = 1;
       $("#stDate").datepicker({dateFormat: 'dd/mm/yy'});
       $("#enDate").datepicker({dateFormat: 'dd/mm/yy'});
-      
+
       $(document).on("click", ".record_delete", function (){
       
           var checkedVals = $('.check_box:checkbox:checked').map(function() {

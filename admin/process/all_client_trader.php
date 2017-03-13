@@ -34,7 +34,7 @@ if(tdrLoggedIn()){  }
                
         $output[] = array (           
         
-            $fetch["id"],$fetch["name"],$fetch["email"],$fetch["email_cc"],$fetch["clname"]
+            $fetch["id"],$fetch["name"],$fetch["email"],$fetch["email_cc"],$fetch["clname"],$fetch["broker"]
         
         );
         

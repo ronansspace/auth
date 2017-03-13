@@ -83,7 +83,8 @@ if(tdrLoggedIn()){
                         
                           <th width="15%">Client Trader</th>
                           <th width="15%">Email</th>          
-                          <th>Email CC</th>     
+                          <th>Email CC</th>
+                          <th>Broker</th>
                     </tr>
                 </thead>
                 
@@ -150,7 +151,7 @@ if(tdrLoggedIn()){
                             for(var i = 0; i < s.length; i++) 
                             { 
                                   
-                                  oTable.fnAddData([ "<input type='checkbox' name='id_trades' class='check_box' value='"+s[i][0]+"'/>", s[i][4], s[i][1], s[i][2], s[i][3]
+                                  oTable.fnAddData([ "<input type='checkbox' name='id_trades' class='check_box' value='"+s[i][0]+"'/>", s[i][4], s[i][1], s[i][2], s[i][3], s[i][5]
                                    
                                   ]);                                       
                                   var theNode = oTable.fnSettings().aoData[i].nTr;

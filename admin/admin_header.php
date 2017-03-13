@@ -18,7 +18,6 @@
               <li><a href="clients.php">Client List</a></li>
               <li><a href="client_trader.php">Client Trader List</a></li>                 
               <li><a href="brokerage.php">Brokerage</a></li>
-              
               <li><a href="ccyrate.php">CCY Rate</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
