@@ -6,6 +6,7 @@ require_once('../inc/def.php');
 $id_client = "";
 $client = "";
 $email = "";
+$broker = "";
 
  $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
@@ -28,6 +29,7 @@ if(isset($_GET['id'])){
         $email = $row['email'];
         $email_cc = $row['email_cc'];
         $client_id = $row['client_id'];
+        $broker = $row['broker'];
        
 }
 
@@ -127,9 +129,13 @@ if(!tdrLoggedIn()){
                   <td>Email CC</td>
                   <td colspan="3">
                       <input tabindex="3" style="width:97%" type="text" name="email_cc" value="<?=$email_cc;?>" class="">
-                  </td>                            
-                         
-              </tr>  
+                  </td>
+
+                   <td>Broker</td>
+                   <td colspan="3">
+                       <input tabindex="3" style="width:97%" type="text" name="broker" value="<?=$broker;?>" class="">
+                   </td>
+               </tr>
                             
               
                                     
