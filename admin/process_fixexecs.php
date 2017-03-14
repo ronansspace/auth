@@ -36,7 +36,8 @@ while($fetch = $result->fetch_array()) {
         $fetch["ExecID"],$fetch["LastPx"],$fetch["LastQty"],$fetch["OrderID"],$fetch["OrderQty"],
         $fetch["OrdStatus"],$fetch["OrdType"],$fetch["Price"],$fetch["Side"],$fetch["TimeInForce"],
         $fetch["TransactTime"],$fetch["SettlDate"],$fetch["ListID"],$fetch["TradeDate"],$fetch["ExecType"],
-        $fetch["LeavesQty"],$fetch["EffectiveTime"],$fetch["NoContraBrokers"],$fetch["SecondaryExecID"],$fetch["PartyID"],$fetch["ContraBroker"],$fetch["SourceSystem"]
+        $fetch["LeavesQty"],$fetch["EffectiveTime"],$fetch["NoContraBrokers"],$fetch["SecondaryExecID"],$fetch["PartyID"],$fetch["ContraBroker"],$fetch["SourceSystem"],
+        $fetch["SenderCompID"],$fetch["TargetCompID"],$fetch["DeliverToCompID"],$fetch["DeliverToSubID"],$fetch["SenderLocationID"],$fetch["SendingTime"],$fetch["LastCapacity"],$fetch["SecurityType"],$fetch["FlexMarketPrice"]
     );
 }
 echo json_encode($output);
